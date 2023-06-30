@@ -64,6 +64,7 @@ const PostLeave = () => {
             Left by mistake?
           </Text>
           <Button
+            className="button-preview"
             onClick={() => {
               let previewUrl = "/preview/" + roomId;
               if (role) previewUrl += "/" + role;
@@ -77,8 +78,8 @@ const PostLeave = () => {
               Rejoin
             </Text>
           </Button>
-          <a href="http://localhost:3000/live">
-            <Button>
+          <a href="https://nknights.vercel.app/live">
+            <Button className="button-preview">
               <ExitIcon />
               <Text
                 css={{ ml: "$3", fontWeight: "$semiBold", color: "inherit" }}

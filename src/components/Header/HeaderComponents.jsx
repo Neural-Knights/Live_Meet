@@ -57,16 +57,18 @@ export const Logo = () => {
     return null;
   }
   return (
-    <LogoImg
-      src={
-        logo ||
-        (themeType === "dark"
-          ? require("../../images/logo-light.svg")
-          : require("../../images/logo-dark.svg"))
-      }
-      alt="Neural Knights Logo"
-      width={152}
-      height={60}
-    />
+    <a href="https://nknights.vercel.app/live" target="_blank" rel="noreferrer">
+      <LogoImg
+        src={
+          logo ||
+          (themeType === "dark"
+            ? require("../../images/logo-light.svg")
+            : require("../../images/logo-dark.svg"))
+        }
+        alt="Neural Knights Logo"
+        width={152}
+        height={60}
+      />
+    </a>
   );
 };

@@ -41,12 +41,4 @@ const Form = styled("form", {
   borderColor: "#18007B",
 });
 
-// const Input = styled("input", {
-//     borderStyle: "solid",
-//     borderWidth: 2,
-//     borderColor: "#18007B",
-//     borderRadius: 5,
-//   }
-// );
-
 export default PreviewName;

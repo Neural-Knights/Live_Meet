@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useSearchParam } from "react-use";
 import { v4 as uuid } from "uuid";
 import { useHMSActions } from "@100mslive/react-sdk";
-import { Box, Flex, Loading, styled } from "@100mslive/react-ui";
+import { Box, Flex, Loading } from "@100mslive/react-ui";
 import PreviewContainer from "./Preview/PreviewContainer";
 import SidePane from "../layouts/SidePane";
 import { ErrorDialog } from "../primitives/DialogContent";
@@ -19,16 +19,6 @@ import {
   QUERY_PARAM_SKIP_PREVIEW_HEADFUL,
   UI_SETTINGS,
 } from "../common/constants";
-
-/**
- * query params exposed -
- * skip_preview=true => used by recording and streaming service, skips preview and directly joins
- *                      header and footer don't show up in this case
- * skip_preview_headful=true => used by automation testing to skip preview without impacting the UI
- * name=abc => gives the initial name for the peer joining
- * auth_token=123 => uses the passed in token to join instead of fetching from token endpoint
- * ui_mode=activespeaker => lands in active speaker mode after joining the room
- */
 
 const env = process.env.REACT_APP_ENV;
 const PreviewScreen = React.memo(({ authTokenByRoomCodeEndpoint }) => {
@@ -186,30 +176,6 @@ const convertPreviewError = error => {
   }
 };
 
-const Link = styled("a", {
-  color: "#2f80e1",
-});
-
-export const ErrorWithSupportLink = errorMessage => (
-  <div>
-    {errorMessage} If you think this is a mistake on our side, please create{" "}
-    <Link
-      target="_blank"
-      href="https://github.com/100mslive/100ms-web/issues"
-      rel="noreferrer"
-    >
-      an issue
-    </Link>{" "}
-    or reach out over{" "}
-    <Link
-      target="_blank"
-      href="https://discord.com/invite/kGdmszyzq2"
-      rel="noreferrer"
-    >
-      Discord
-    </Link>
-    .
-  </div>
-);
+export const ErrorWithSupportLink = errorMessage => <div>{errorMessage}</div>;
 
 export default PreviewScreen;
